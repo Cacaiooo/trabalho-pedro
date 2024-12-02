@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Funcionários</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Gerenciamento de Funcionários</h1>
+        <div id="container">
+            <!-- Formulário de Adição -->
+            <div id="addFormContainer">
+                <h3>Adicionar Funcionário</h3>
+                <form id="addForm">
+                    <input type="text" id="name" placeholder="Nome" required />
+                    <input type="text" id="position" placeholder="Cargo" required />
+                    <input type="number" id="salary" placeholder="Salário" required />
+                    <input type="date" id="dob" required />
+                    <textarea id="address" placeholder="Endereço" required></textarea>
+                    <button type="submit">Adicionar</button>
+                </form>
+            </div>
+        
+            <!-- Tabela de Funcionários -->
+            <div id="tableContainer">
+                <h3>Funcionários</h3>
+                <table id="employeeTable">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cargo</th>
+                            <th>Salário</th>
+                            <th>Data de Nascimento</th>
+                            <th>Endereço</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Os dados são preenchidos dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
+        
+            <div id="editFormContainer" style="display: none;">
+                <h3>Editar Funcionário</h3>
+                <form id="editForm">
+                    <input type="hidden" id="editEmployeeId" />
+                    <input type="text" id="editName" placeholder="Nome" required />
+                    <input type="text" id="editPosition" placeholder="Cargo" required />
+                    <input type="number" id="editSalary" placeholder="Salário" required />
+                    <input type="date" id="editDob" required />
+                    <textarea id="editAddress" placeholder="Endereço" required></textarea>
+                    <button type="submit">Salvar Alterações</button>
+                    <button type="button" id="cancelEditButton">Cancelar</button>
+                </form>
+            </div>
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
