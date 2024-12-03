@@ -1,32 +1,19 @@
-const API_URL = '/api/Employee';
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-dotenv.config();
+const API_URL = '/api/employees';
 
-// Conexão com o MongoDB (usar conexão global para evitar múltiplas conexões)
-if (!global.mongoose) {
-    global.mongoose = mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
+async function fetchEmployees() {
+    try {
+        const response = await fetch(API_URL);
+        if (response.ok) {
+            const employees = await response.json();
+            displayEmployees(employees);
+        } else {
+            console.error('Erro ao buscar funcionários:', await response.json());
+        }
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+    }
 }
 
-// Handler para listar todos os funcionários
-module.exports = async (req, res) => {
-    if (req.method === 'GET') {
-        try {
-            const employees = await Employee.find();
-            res.status(200).json(employees);
-        } catch (error) {
-            console.error('Erro ao listar funcionários:', error);
-            res.status(500).json({ message: 'Erro ao listar funcionários' });
-        }
-    } else {
-        res.status(405).json({ message: 'Método não permitido' });
-    }
-};
-
-// Função para adicionar funcionário
 // Função para adicionar funcionário
 document.getElementById("addForm").addEventListener("submit", async (e) => {
     e.preventDefault();
