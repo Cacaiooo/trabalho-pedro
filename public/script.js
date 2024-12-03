@@ -1,4 +1,4 @@
-const API_URL = '/api/employees';
+const API_URL = '/api/Employee';
 
 // Função para adicionar funcionário
 // Função para adicionar funcionário
