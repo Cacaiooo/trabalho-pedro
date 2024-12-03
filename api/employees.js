@@ -17,10 +17,11 @@ const Employee = mongoose.models.Employee || mongoose.model('Employee', employee
 // Conexão com o MongoDB
 const connectToDb = async () => {
     if (mongoose.connections[0].readyState) return; // Se já estiver conectado, não faz nada
+
     try {
         await mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
         });
         console.log('Conectado ao MongoDB com sucesso!');
     } catch (error) {
