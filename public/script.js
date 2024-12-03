@@ -1,4 +1,4 @@
-const API_URL = '/employee-manager/api/employees.js';
+const API_URL = '/api/employees.js';
 
 async function fetchEmployees() {
     try {
