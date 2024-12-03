@@ -1,23 +1,18 @@
 // /api/employees.js (Backend)
 const mongoose = require('mongoose');
-const Employee = require('../api/employees');
+const Employee = require('./employees');  // Corrigido o caminho
 const dotenv = require('dotenv');
 dotenv.config();
 
-const cors = require('cors');
-app.use(cors());
-
 // Conexão com o MongoDB
-(async () => {
-    if (!global.mongoose) {
-        try {
-            global.mongoose = await mongoose.connect(process.env.MONGO_URI);
-            console.log('Conectado ao MongoDB com sucesso!');
-        } catch (error) {
-            console.error('Erro ao conectar ao MongoDB:', error);
-        }
-    }
-})();
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Conectado ao MongoDB com sucesso!');
+}).catch((error) => {
+    console.error('Erro ao conectar ao MongoDB:', error);
+});
 
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
