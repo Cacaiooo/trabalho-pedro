@@ -51,12 +51,12 @@ h1 {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
-    max-height: 300px; /* Define a altura máxima da tabela */
+    max-height: 450px; /* Define a altura máxima da tabela */
     overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
     display: block; /* Torna a tabela um bloco para que a rolagem funcione */
 }
 #employeeTable th, #employeeTable td {
-    padding: 8px 12px;
+    padding: 8px 30px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }

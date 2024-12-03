@@ -1,5 +1,6 @@
-const API_URL = 'http://localhost:5000/employees';
+const API_URL = 'https://trabalho-pedro.vercel.app/employees';
 
+// Função para adicionar funcionário
 // Função para adicionar funcionário
 document.getElementById("addForm").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ document.getElementById("addForm").addEventListener("submit", async (e) => {
             const newEmployee = await response.json(); // Aguarda o JSON da resposta
             console.log("Funcionário criado com sucesso:", newEmployee); // Loga o funcionário criado
             fetchEmployees(); // Atualiza a lista de funcionários
-            document.getElementById("employeeForm").reset(); // Reseta o formulário
+            document.getElementById("addForm").reset(); // Reseta o formulário
         } else {
             console.error("Erro ao criar funcionário:", await response.json()); // Loga o erro vindo do backend
         }
@@ -29,6 +30,8 @@ document.getElementById("addForm").addEventListener("submit", async (e) => {
         console.error("Erro na requisição de criação:", error); // Log de erro no fetch
     }
 });
+
+
 
 // Função para buscar e exibir funcionários
 async function fetchEmployees() {
