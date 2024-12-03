@@ -1,4 +1,4 @@
-const API_URL = 'https://trabalho-pedro.vercel.app/employees';
+const API_URL = 'https://trabalho-pedro.vercel.app/employee';
 
 // Função para adicionar funcionário
 // Função para adicionar funcionário
