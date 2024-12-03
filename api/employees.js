@@ -4,6 +4,9 @@ const Employee = require('../api/employees');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const cors = require('cors');
+app.use(cors());
+
 // Conexão com o MongoDB
 (async () => {
     if (!global.mongoose) {
