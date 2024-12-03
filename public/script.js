@@ -1,4 +1,4 @@
-const API_URL = '/api/employees.js';
+const API_URL = '/api/employees';
 
 async function fetchEmployees() {
     try {
