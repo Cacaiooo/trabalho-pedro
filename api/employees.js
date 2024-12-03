@@ -1,16 +1,20 @@
 // /api/employees.js (Backend)
 const mongoose = require('mongoose');
-const Employee = require('../models/employee');
+const Employee = require('../api/employees');
 const dotenv = require('dotenv');
 dotenv.config();
 
 // Conexão com o MongoDB
-if (!global.mongoose) {
-    global.mongoose = mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
-}
+(async () => {
+    if (!global.mongoose) {
+        try {
+            global.mongoose = await mongoose.connect(process.env.MONGO_URI);
+            console.log('Conectado ao MongoDB com sucesso!');
+        } catch (error) {
+            console.error('Erro ao conectar ao MongoDB:', error);
+        }
+    }
+})();
 
 module.exports = async (req, res) => {
     if (req.method === 'GET') {
