@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// Definindo o schema para o funcionário
+
 const employeeSchema = new mongoose.Schema({
     name: {
         type: String,
